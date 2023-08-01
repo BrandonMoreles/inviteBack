@@ -13,8 +13,7 @@ repositories {
 }
 
 dependencies {
-implementation 'mysql:mysql-connector-java:8.0.33'
-
+    implementation 'mysql:mysql-connector-java:8.0.33'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.5.1'
     implementation 'org.springframework.boot:spring-boot-starter-web:2.6.2'
     implementation 'jakarta.persistence:jakarta.persistence-api:3.0.0'
@@ -27,4 +26,11 @@ implementation 'mysql:mysql-connector-java:8.0.33'
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+// Agregar el bloque jar para configurar el manifiesto
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.catalogo.CatalogoShopMo.CatalogoShopMoApplication.java'
+    }
 }
